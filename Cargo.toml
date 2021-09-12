@@ -1,0 +1,25 @@
+[package]
+name = "solve"
+version = "0.0.1"
+authors = ["Divya Jain <divykjain@gmail.com>"]
+edition = "2018"
+license = "MIT"
+description = "solve basic math expressions in the terminal"
+
+[workspace]
+
+[dependencies]
+solve_lib = { path = "lib", version = "0.0.1" }
+clap = { version = "3.0.0-beta.4", default_features = false, features = [
+    "std",
+    "derive",
+    "color",
+    "suggestions"
+] }
+rustyline = "9.0.0"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
